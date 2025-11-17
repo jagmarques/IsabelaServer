@@ -192,7 +192,7 @@ static bool parse_clients(const char *payload, IsabelaServerContext *ctx, char *
         }
         ++p;
         IsabelaClientProfile profile = {0};
-        profile.id = (int)(idx + 1);
+        bool has_id = false;
         while (1) {
             p = skip_ws(p);
             if (*p == '}') {
@@ -208,7 +208,13 @@ static bool parse_clients(const char *payload, IsabelaServerContext *ctx, char *
                 return false;
             }
             ++p;
-            if (strcmp(key, "activity") == 0) {
+            if (strcmp(key, "id") == 0) {
+                char tmp[64];
+                if (parse_string_value(&p, tmp, sizeof(tmp))) {
+                    profile.id = atoi(tmp);
+                    has_id = true;
+                }
+            } else if (strcmp(key, "activity") == 0) {
                 parse_string_value(&p, profile.activity, sizeof(profile.activity));
             } else if (strcmp(key, "location") == 0) {
                 parse_string_value(&p, profile.location, sizeof(profile.location));
@@ -239,6 +245,9 @@ static bool parse_clients(const char *payload, IsabelaServerContext *ctx, char *
                 ++p;
                 break;
             }
+        }
+        if (!has_id) {
+            profile.id = (int)(idx + 1);
         }
         if (idx < ISABELA_MAX_CLIENTS) {
             ctx->clients[idx++] = profile;
