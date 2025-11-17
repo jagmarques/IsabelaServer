@@ -42,7 +42,3 @@ tests/          Regression tests targeting the registry/averages
 - `make test` covers the registry loader and average calculations.
 - Wrap the binaries with `valgrind` or `asan` for memory diagnostics.
 - Verbose logging goes to stdout/stderr; redirect when needed.
-
-## Contributing
-
-Open issues or submit pull requests for enhancements and fixes. Please keep patches focused and well-documented.
