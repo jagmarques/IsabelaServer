@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "type": "student",
+    "activity": "available",
+    "location": "HQ",
+    "calls_duration": "10",
+    "calls_made": "5",
+    "calls_missed": "1",
+    "calls_received": "4",
+    "department": "Support",
+    "sms_received": "3",
+    "sms_sent": "7"
+  },
+  {
+    "id": "2",
+    "type": "student",
+    "activity": "busy",
+    "location": "Remote",
+    "calls_duration": "40",
+    "calls_made": "12",
+    "calls_missed": "4",
+    "calls_received": "10",
+    "department": "Sales",
+    "sms_received": "5",
+    "sms_sent": "2"
+  }
+]
