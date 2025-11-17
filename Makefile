@@ -4,9 +4,9 @@ INCLUDES = -Iinclude
 LDFLAGS ?=
 LIBS =
 
-SRC_SERVER = src/server/main.c src/server/context.c src/server/data_store.c src/server/network.c src/server/subscription.c
+SRC_SERVER = server.c src/server/context.c src/server/data_store.c src/server/network.c src/server/subscription.c
 
-SRC_CLIENT = src/client/main.c
+SRC_CLIENT = client.c
 
 TEST_SRCS = tests/test_registry.c
 

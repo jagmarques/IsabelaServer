@@ -7,9 +7,10 @@ The client connects over TCP, lets a user inspect current metrics, and receives 
 ## Repository layout
 
 ```
+client.c        Interactive CLI entry point
+server.c        Server entry point that wires together the server modules
 include/        Public headers shared by client, server, and tests
-src/server/     Server entry point plus context, data store, network, and subscription modules
-src/client/     Interactive CLI client
+src/server/     Context, data store, network, and subscription modules
 tests/          Regression tests that exercise the registry loader
 fixtures/       Offline JSON sample data
 build/          Generated binaries (ignored by Git)
